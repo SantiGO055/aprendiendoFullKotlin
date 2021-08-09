@@ -1,0 +1,23 @@
+en el build.graddle del module en la parte de buildTypes release se
+va a configurar para la subida a play store
+
+en dependencies se va a agregar distintas librerias
+no conviene llenar muchas librerias sino optimizar y poner solo las que
+voy a usar
+
+Los layouts pueden ser:
+constraint layout
+linear layout
+relative layout
+
+el relative por ahora no lo vamos a usar
+
+
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+va a ocupar todo el ancho de la pantalla
+
+un constraint layout tiene como cadenas
+a cada componente se le va agregando id's para identificar
+cada uno y poder interactuar con el layout
+
