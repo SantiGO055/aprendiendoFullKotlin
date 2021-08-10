@@ -21,3 +21,13 @@ un constraint layout tiene como cadenas
 a cada componente se le va agregando id's para identificar
 cada uno y poder interactuar con el layout
 
+Fragmentos:
+-un fragmento convive en la activity
+-un fragmento tiene como padre un activity
+-es como una actividad, tiene su propio ciclo de vida
+tambien se puede tener codigo igual que una activity pero mas liviano
+en vez de crear varios fragmentos, se crea un contenedor y varios fragmentos
+manejando un stack de fragmentos
+-son mas performantes que la activity
+Cuando inicia la actividad pongo un fragmento dentro del contenedor dentro de la activity
+Para navegar de un fragment a otro, si agrego con add un fragment a la pila y no pongo replace se pega arriba del anterior

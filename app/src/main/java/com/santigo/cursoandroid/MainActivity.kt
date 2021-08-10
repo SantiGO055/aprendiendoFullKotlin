@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.TextView
+import androidx.fragment.app.commit
 
 class MainActivity : AppCompatActivity() {
     private lateinit var texto: TextView
@@ -14,37 +15,42 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        supportFragmentManager.commit {
+            setReorderingAllowed(true)
+            //agrego el primer fragmento dentro del contenedor
+            add(R.id.fragment_container_view,PrimerFragment())
+        }
         Log.d("Lifecycle", "onCreate: ")
 
-        texto = findViewById<TextView>(R.id.txt_output)
-        val boton = findViewById<Button>(R.id.btn_accion)
+        //texto = findViewById<TextView>(R.id.txt_output)
+//        val boton = findViewById<Button>(R.id.btn_accion)
 
-        boton.setOnClickListener {
-            if (texto.text != "Curso Android")
-                texto.text = "Curso Android"
-            else
-                texto.text = "Hello World!"
-
-            navegarSegundaActivity()
-        }
+//        boton.setOnClickListener {
+//            if (texto.text != "Curso Android")
+//                texto.text = "Curso Android"
+//            else
+//                texto.text = "Hello World!"
+//
+//            navegarSegundaActivity()
+//        }
     }
 
-    private fun navegarSegundaActivity(){
-        val intent = Intent(this,SegundaActivity::class.java) //desde esta clase (main activity) hacia la otra activity
-        intent.putExtra("nombre","Segunda activity")
-        //startActivity(intent)
-        startActivityForResult(intent,1) //el request code es para identificar que se va a la 2da activity
-    }
+//    private fun navegarSegundaActivity(){
+//        val intent = Intent(this,SegundaActivity::class.java) //desde esta clase (main activity) hacia la otra activity
+//        intent.putExtra("nombre","Segunda activity")
+//        //startActivity(intent)
+//        startActivityForResult(intent,1) //el request code es para identificar que se va a la 2da activity
+//    }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if(requestCode == 1){ //el request es el que identifica que vamos a la 2da activity
-            if(resultCode == Activity.RESULT_OK){
-                texto.text = data?.getStringExtra("nombre2")
-
-            }
-        }
-    }
+//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+//        super.onActivityResult(requestCode, resultCode, data)
+//        if(requestCode == 1){ //el request es el que identifica que vamos a la 2da activity
+//            if(resultCode == Activity.RESULT_OK){
+//                texto.text = data?.getStringExtra("nombre2")
+//
+//            }
+//        }
+//    }
 
     /**
      * Estos metodos se ejecutan siempre que se inicia la app
