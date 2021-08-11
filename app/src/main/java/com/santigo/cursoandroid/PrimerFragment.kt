@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.commit
+import androidx.fragment.app.setFragmentResultListener
 
 
 class PrimerFragment : Fragment(R.layout.fragment_primer) {
@@ -24,11 +25,26 @@ class PrimerFragment : Fragment(R.layout.fragment_primer) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val texto = view.findViewById<TextView>(R.id.text)
+//        val texto = view.findViewById<TextView>(R.id.text)
         val button = view.findViewById<Button>(R.id.btn_navegar)
+        val text = view.findViewById<TextView>(R.id.txt_output)
+
+
+        /**
+         * creo listener que este escuchando cambios desde el fragment dos
+         */
+        setFragmentResultListener("req"){
+            requestKey, bundle ->
+            val result = bundle.getString("bundleKey")
+            //lo que viene del segundo fragmento lo asigno al texto
+            text.text = result
+        }
+
+
         button.setOnClickListener {
             requireActivity().supportFragmentManager.commit {
-                replace(R.id.fragment_container_view, SegundoFragment())
+
+                replace(R.id.fragment_container_view, SegundoFragment.newInstance("Santiago",24))
                 addToBackStack("primerFragment") //el nombre que paso es un ID para identificar la pantalla anterior
                 //si agrego
             }
