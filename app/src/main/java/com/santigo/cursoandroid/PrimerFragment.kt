@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.commit
 import androidx.fragment.app.setFragmentResultListener
+import androidx.navigation.fragment.findNavController
 
 
 class PrimerFragment : Fragment(R.layout.fragment_primer) {
@@ -42,12 +43,20 @@ class PrimerFragment : Fragment(R.layout.fragment_primer) {
 
 
         button.setOnClickListener {
-            requireActivity().supportFragmentManager.commit {
+            //navegacion con plugin de google
+            findNavController().navigate(R.id.action_primerFragment_to_segundoFragment) //encontramos el main graph el cual se creo para navegar
 
-                replace(R.id.fragment_container_view, SegundoFragment.newInstance("Santiago",24))
-                addToBackStack("primerFragment") //el nombre que paso es un ID para identificar la pantalla anterior
-                //si agrego
-            }
+
+
+//            navegacion de manera nativa
+//            requireActivity().supportFragmentManager.commit {
+//
+//
+//                replace(R.id.fragment_container_view, SegundoFragment.newInstance("Santiago",24))
+//                addToBackStack("primerFragment") //el nombre que paso es un ID para identificar la pantalla anterior
+//                //si agrego
+//            }
+
         }
     }
 

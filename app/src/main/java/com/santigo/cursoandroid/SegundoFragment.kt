@@ -21,8 +21,14 @@ class SegundoFragment : Fragment(R.layout.fragment_segundo) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //obtengo argumentos
-        nombre = requireArguments().getString(MI_NOMBRE)
-        edad = requireArguments().getInt(MI_EDAD)
+//        nombre = requireArguments().getString(MI_NOMBRE)
+//        edad = requireArguments().getInt(MI_EDAD)
+        //si los argumentos no son nulos entra en el siguiente metodo
+        arguments?.let {
+            bundle ->
+            nombre = bundle.getString(MI_NOMBRE)
+            edad = bundle.getInt(MI_EDAD)
+        }
     }
 
 

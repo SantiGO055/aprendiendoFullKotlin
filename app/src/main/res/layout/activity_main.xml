@@ -31,10 +31,15 @@
 <!--        app:layout_constraintTop_toBottomOf="@+id/txt_output" />-->
 
 
+<!--    aca adentro de este container va a vivir el fragment que se use en la app -->
+<!--   el nav host fragment verifica las flechas de los fragments y tiene que estar escrito tal cual esta -->
     <androidx.fragment.app.FragmentContainerView
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:id="@+id/fragment_container_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        app:defaultNavHost = "true"
+        app:navGraph = "@navigation/main_graph"
         />
 <!--        android:name="com.santigo.cursoandroid.PrimerFragment"-->
 
