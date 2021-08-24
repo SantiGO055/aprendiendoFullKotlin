@@ -13,8 +13,10 @@
             android:name=".SegundaActivity"
             android:exported="true" />
         <activity
+
             android:name=".MainActivity"
             android:exported="true">
+            <nav-graph android:value="@navigation/product_graph"/>
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

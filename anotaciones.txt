@@ -45,3 +45,7 @@ agregar tambien:
 app:defaultNavHost = "true" -> con esto defino que la casita sea sea el fragment inicial
 app:navGraph = "@navigation/main_graph"
 
+Para navegar desde un fragment a otro de otro graph no uso flecha por que si pongo flecha me va a llevar al fragment principal de ese graph y no a otro, uso deep linking, al destino le creo un deep link y le pongo cursoandroid://card por ejemplo
+Ahora en el android manifest agrego dentro del <activity> el <nav-graph android:value="@navigation/product_graph"/>
+en el findnavcontroller le paso el nombre del uri del deeplink que cree
+findNavController().navigate(Uri.parse("cursoandroid://card"))

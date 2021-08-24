@@ -1,5 +1,6 @@
 package com.santigo.cursoandroid
 
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,6 +10,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.core.os.bundleOf
 import androidx.fragment.app.setFragmentResult
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 
 class SegundoFragment : Fragment(R.layout.fragment_segundo) {
@@ -48,6 +50,7 @@ class SegundoFragment : Fragment(R.layout.fragment_segundo) {
         boton.setOnClickListener {
             val result = "resultado"
             setFragmentResult("req", bundleOf("bundleKey" to result)) //bundleOf paso clave (el nombre que le puse en el primer fragment) valor ()
+            findNavController().navigate(Uri.parse("cursoandroid://card")) //paso el nombre del uri del deeplink
         }
 
     }
