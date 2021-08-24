@@ -31,3 +31,17 @@ manejando un stack de fragmentos
 -son mas performantes que la activity
 Cuando inicia la actividad pongo un fragmento dentro del contenedor dentro de la activity
 Para navegar de un fragment a otro, si agrego con add un fragment a la pila y no pongo replace se pega arriba del anterior
+
+Para usar plugin de google para navegar entre fragmentos
+1- Importo el plugin:
+implementation("androidx.navigation:navigation-fragment-ktx:2.3.5")
+implementation("androidx.navigation:navigation-ui-ktx:2.3.5")
+2- Click derecho sobre res, new, android resource directory, selecciono navigation
+3- Sobre la carpeta navigation click derecho, new, navigation resource file y pongo nombre
+agregar al activity main del layour xml en el fragment container view:
+android:name="androidx.navigation.fragment.NavHostFragment"
+es para poder navegar entre fragmentos, le muestra el grafico de navegacion al fragment
+agregar tambien:
+app:defaultNavHost = "true" -> con esto defino que la casita sea sea el fragment inicial
+app:navGraph = "@navigation/main_graph"
+

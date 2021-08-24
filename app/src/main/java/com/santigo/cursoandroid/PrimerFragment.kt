@@ -44,6 +44,7 @@ class PrimerFragment : Fragment(R.layout.fragment_primer) {
 
         button.setOnClickListener {
             //navegacion con plugin de google
+            //encuentro el nav controller por defecto, este fragment esta dentro del main activity a traves del fragment container view
             findNavController().navigate(R.id.action_primerFragment_to_segundoFragment) //encontramos el main graph el cual se creo para navegar
 
 
