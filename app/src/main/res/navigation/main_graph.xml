@@ -12,11 +12,25 @@
         tools:layout="@layout/fragment_primer" >
         <action
             android:id="@+id/action_primerFragment_to_segundoFragment"
-            app:destination="@id/segundoFragment" />
+            app:destination="@id/segundoFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/segundoFragment"
         android:name="com.santigo.cursoandroid.SegundoFragment"
         android:label="fragment_segundo"
-        tools:layout="@layout/fragment_segundo" />
+        tools:layout="@layout/fragment_segundo" >
+        <argument
+            android:name="nombre"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="NO_NAME" />
+        <argument
+            android:name="edad"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
 </navigation>

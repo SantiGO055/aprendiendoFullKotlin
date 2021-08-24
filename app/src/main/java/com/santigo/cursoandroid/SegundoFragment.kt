@@ -9,11 +9,13 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.core.os.bundleOf
 import androidx.fragment.app.setFragmentResult
+import androidx.navigation.fragment.navArgs
 
 class SegundoFragment : Fragment(R.layout.fragment_segundo) {
 
     private var nombre: String?=""
     private var edad: Int ?= 0
+    private val args: SegundoFragmentArgs by navArgs()
 
     /**
      * si obtengo los argumentos aca, puedo usar antes que la vista se cree, en caso de preinicializar la vista con esos datos
@@ -24,11 +26,17 @@ class SegundoFragment : Fragment(R.layout.fragment_segundo) {
 //        nombre = requireArguments().getString(MI_NOMBRE)
 //        edad = requireArguments().getInt(MI_EDAD)
         //si los argumentos no son nulos entra en el siguiente metodo
+        /**
+         * lo saco para usar safe args
         arguments?.let {
-            bundle ->
-            nombre = bundle.getString(MI_NOMBRE)
-            edad = bundle.getInt(MI_EDAD)
+        bundle ->
+        nombre = bundle.getString(MI_NOMBRE)
+        edad = bundle.getInt(MI_EDAD)
         }
+         */
+        nombre = args.nombre
+        edad = args.edad
+
     }
 
 
